@@ -35,25 +35,18 @@ radial-gradient(circle at 50% 80%, rgba(59,130,246,.12), transparent 35%);
 pointer-events:none;
 }
 .container{max-width:1200px;margin:auto;padding:0 24px;position:relative;z-index:1}
-nav{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:14px 0;
-position:sticky;
-top:0;
-z-index:100;
-background:rgba(5,8,22,.7);
-backdrop-filter:blur(14px);
+
+.logo{
+    position:fixed;
+    top:28px;
+    left:40px;
+    z-index:1000;
 }
-.logo img{max-height:130px;width:auto;display:block}
-.hero{min-height:92vh;display:flex;align-items:center}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
-.badge{
-display:inline-block;padding:10px 16px;border-radius:999px;
-border:1px solid rgba(255,255,255,.12);
-background:rgba(255,255,255,.04);
-margin-bottom:22px;
+
+.logo img{
+    max-height:130px;
+    width:auto;
+    display:block;
 }
 h1{font-size:5rem;line-height:.95;font-weight:900;margin-bottom:24px}
 .gradient{
