@@ -11,6 +11,21 @@
 --card:rgba(255,255,255,.06);--text:#f8fafc;
 --muted:#cbd5e1;--cyan:#22d3ee;--blue:#3b82f6;
 }
+    .chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    justify-content:center;
+}
+
+.chip{
+    padding:12px 20px;
+    border-radius:999px;
+    background:rgba(34,211,238,.08);
+    border:1px solid rgba(34,211,238,.18);
+    color:#dff7ff;
+    font-weight:600;
+}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text)}
 .card a{ color:#7dd3fc; text-decoration:none; font-weight:500; transition:all .2s ease; } .card a:visited{ color:#7dd3fc; }
@@ -77,11 +92,10 @@ h1{font-size:3rem}
 <a href="#contact" class="btn btn-primary">Request An Audit</a>
 <a href="https://www.linkedin.com/in/paulbrash/" class="btn btn-secondary">View LinkedIn</a>
 
-<div class="stats">
-<div class="stat">Ecommerce</div>
-<div class="stat">B2B</div>
-<div class="stat">Lead Generation</div>
-<div class="stat">Agency Support</div>
+<div class="chip">Ecommerce</div>
+<div class="chip">B2B</div>
+<div class="chip">Agency Support</div>
+<div class="chip">Lead Generation</div>
 </div>
 </div>
 
