@@ -114,6 +114,38 @@ footer{text-align:center;padding:40px;color:#94a3b8}
 h1{font-size:3rem}
 .logo img{max-height:90px}
 }
+  .experience-tabs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:32px;
+    margin-bottom:24px;
+}
+
+.tab{
+    padding:12px 18px;
+    border-radius:999px;
+    border:1px solid rgba(34,211,238,.18);
+    background:rgba(34,211,238,.08);
+    color:#dff7ff;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s ease;
+}
+
+.tab:hover{
+    transform:translateY(-2px);
+}
+
+.tab.active{
+    background:rgba(34,211,238,.18);
+    border-color:rgba(34,211,238,.4);
+    box-shadow:0 0 20px rgba(34,211,238,.15);
+}
+
+.audit-card{
+    margin-top:24px;
+}  
 </style>
 </head>
 <body>
@@ -143,11 +175,28 @@ Helping agencies, ecommerce brands, B2B companies and service businesses improve
 </div>
 
 <div class="experience-pills">
-<span>Ecommerce</span>
-<span>B2B</span>
-<span>Lead Generation</span>
-<span>Agency Support</span>
+<button class="tab active" onclick="showAudit('ecommerce')">
+    Ecommerce
+</button>
+
+<button class="tab" onclick="showAudit('b2b')">
+    B2B
+</button>
+
+<button class="tab" onclick="showAudit('leadgen')">
+    Lead Generation
+</button>
+
+<button class="tab" onclick="showAudit('agency')">
+    Agency Support
+</button>
+
 </div>
+
+<div class="audit-card">
+    <div id="audit-content">
+        ...
+    </div>
 </div>
 
 <div class="glass">
@@ -247,5 +296,53 @@ Brash Digital • Independent Google Ads Audits
 </footer>
 
 </div>
+const audits = {
+
+ecommerce: `
+<h3>Typical Ecommerce Findings</h3>
+<ul>
+<li>Product groups missing from Shopping campaigns</li>
+<li>Search campaigns competing against PMax</li>
+<li>High-spend products receiving limited visibility</li>
+<li>Poor query control causing wasted spend</li>
+</ul>
+`,
+
+b2b: `
+<h3>Typical B2B Findings</h3>
+<ul>
+<li>High-intent searches excluded</li>
+<li>Broad match generating poor quality leads</li>
+<li>Budget concentrated in low-converting campaigns</li>
+<li>Competitor opportunities missed</li>
+</ul>
+`,
+
+leadgen: `
+<h3>Typical Lead Generation Findings</h3>
+<ul>
+<li>Irrelevant search terms consuming budget</li>
+<li>Conversion-focused keywords underfunded</li>
+<li>Local targeting opportunities missed</li>
+<li>Ad copy misaligned with search intent</li>
+</ul>
+`,
+
+agency: `
+<h3>Typical Agency Audit Findings</h3>
+<ul>
+<li>Structural issues limiting optimisation</li>
+<li>Budget inefficiencies across campaign groups</li>
+<li>Overlapping keyword targeting</li>
+<li>Independent review opportunities identified</li>
+</ul>
+`
+};
+
+function showAudit(type){
+    document.getElementById("audit-content").innerHTML =
+        audits[type];
+}
+    
 </body>
 </html>
