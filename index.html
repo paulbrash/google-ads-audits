@@ -1,115 +1,164 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paul Brash | Google Ads Audits & Account Reviews</title>
+<title>Brash Digital | Independent Google Ads Audits</title>
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:#F8FAFC;color:#1E293B;line-height:1.6}
-header{background:linear-gradient(135deg,#0F172A,#2563EB);color:white;padding:80px 20px;text-align:center}
-.container{max-width:1100px;margin:auto;padding:60px 20px}
-h1{font-size:3rem;margin-bottom:15px}
-h2{text-align:center;margin-bottom:30px}
-.hero-buttons a{display:inline-block;margin:10px;padding:14px 24px;border-radius:6px;text-decoration:none;font-weight:bold}
-.btn-primary{background:white;color:#0F172A}
-.btn-secondary{border:1px solid white;color:white}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.card{background:white;padding:25px;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
-.checklist li{margin-bottom:10px}
-.about{background:white}
-.contact{background:#0F172A;color:white}
-footer{padding:20px;text-align:center;background:#0b1220;color:white}
-a{color:#2563EB}
-.contact a{color:#93C5FD}
+:root{
+--bg:#050816;--bg2:#0b1224;--bg3:#111827;
+--card:rgba(255,255,255,.06);--text:#f8fafc;
+--muted:#cbd5e1;--cyan:#22d3ee;--blue:#3b82f6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text)}
+.container{max-width:1200px;margin:auto;padding:0 24px}
+nav{padding:22px 0;background:rgba(5,8,22,.75);backdrop-filter:blur(12px);position:sticky;top:0}
+.logo img{max-height:95px}
+.hero{padding:80px 0}
+.hero-grid,.grid{display:grid;gap:24px}
+.hero-grid{grid-template-columns:1.15fr .85fr;align-items:center}
+.glass,.card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:24px}
+.glass{padding:34px}
+.card{padding:28px}
+h1{font-size:4.5rem;line-height:.95;margin-bottom:24px}
+.gradient{background:linear-gradient(90deg,#fff,#7dd3fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sub{color:var(--muted);font-size:1.15rem;margin-bottom:28px}
+.btn{display:inline-block;padding:15px 22px;border-radius:14px;text-decoration:none;font-weight:700}
+.btn-primary{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff}
+.btn-secondary{border:1px solid rgba(255,255,255,.15);color:#fff;margin-left:10px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px}
+.stat{text-align:center;padding:18px;background:var(--card);border-radius:18px}
+.section{padding:100px 0}
+.bg2{background:var(--bg2)} .bg3{background:var(--bg3)}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(34,211,238,.35),transparent)}
+.section-title{text-align:center;font-size:3rem;margin-bottom:16px}
+.section-sub{text-align:center;color:var(--muted);max-width:800px;margin:0 auto 45px}
+.grid{grid-template-columns:repeat(3,1fr)}
+.icon-title{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.icon-chip{
+width:34px;height:34px;border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+background:rgba(34,211,238,.12);
+border:1px solid rgba(34,211,238,.25);
+color:#7dd3fc;font-weight:700;font-size:14px;
+}
+.contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:800px;margin:40px auto 0}
+.contact-icon{
+width:48px;height:48px;border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+background:rgba(34,211,238,.12);
+border:1px solid rgba(34,211,238,.25);
+color:#7dd3fc;font-weight:700;margin-bottom:12px;
+}
+@media(max-width:900px){
+.hero-grid,.grid,.stats,.contact-grid{grid-template-columns:1fr}
+h1{font-size:3rem}
+}
 </style>
 </head>
 <body>
 
-<header>
-<h1>Independent Google Ads Audits That Uncover Missed Opportunities</h1>
-<p>Helping agencies, ecommerce brands, B2B companies and service businesses improve Google Ads performance through detailed account reviews and actionable recommendations.</p>
-
-<p>✓ Ecommerce Experience &nbsp; ✓ B2B Experience &nbsp; ✓ Lead Generation Expertise &nbsp; ✓ White-Label Agency Support</p>
-
-<div class="hero-buttons">
-<a href="#contact" class="btn-primary">Request an Audit</a>
-<a href="https://www.linkedin.com/in/paulbrash/" class="btn-secondary">Connect on LinkedIn</a>
+<nav>
+<div class="container">
+<div class="logo"><img src="brash-logo-clear.png" alt="Brash Digital"></div>
 </div>
-</header>
+</nav>
 
-<section class="container">
-<h2>Who I Work With</h2>
+<section class="hero">
+<div class="container hero-grid">
+<div>
+<h1>Independent Google Ads Audits That <span class="gradient">Uncover Hidden Opportunities</span></h1>
+<p class="sub">Trusted by agencies, ecommerce brands, B2B companies and service businesses seeking an independent review of account performance.</p>
+<a href="#contact" class="btn btn-primary">Request An Audit</a>
+<a href="https://www.linkedin.com/in/paulbrash/" class="btn btn-secondary">View LinkedIn</a>
+
+<div class="stats">
+<div class="stat">Ecommerce</div>
+<div class="stat">B2B</div>
+<div class="stat">Lead Generation</div>
+<div class="stat">Agency Support</div>
+</div>
+</div>
+
+<div class="glass">
+<h3 style="margin-bottom:16px;">Typical Opportunities Identified</h3>
+<ul style="padding-left:20px;line-height:1.9;color:#dbeafe">
+<li>Search term inefficiencies</li>
+<li>Campaign structure improvements</li>
+<li>Budget allocation opportunities</li>
+<li>Missed high-intent searches</li>
+<li>Ad relevance improvements</li>
+<li>Growth opportunities</li>
+</ul>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section bg2">
+<div class="container">
+<h2 class="section-title">What I Review</h2>
 <div class="grid">
+
 <div class="card">
-<h3>Businesses</h3>
-<p>Independent Google Ads audits for businesses looking to improve account performance.</p>
+<div class="icon-title"><div class="icon-chip">◉</div><h3>Campaign Structure</h3></div>
+<p>Organisation, segmentation and account architecture.</p>
 </div>
+
 <div class="card">
-<h3>Digital Agencies</h3>
-<p>White-label Google Ads audits and account reviews delivered under your own brand.</p>
+<div class="icon-title"><div class="icon-chip">⌕</div><h3>Keywords & Search Terms</h3></div>
+<p>Traffic quality, intent and missed opportunities.</p>
 </div>
+
 <div class="card">
-<h3>Marketing Teams</h3>
-<p>Independent reviews that provide a fresh perspective on existing Google Ads accounts.</p>
+<div class="icon-title"><div class="icon-chip">▮</div><h3>Budgets & Bidding</h3></div>
+<p>Allocation and efficiency analysis.</p>
+</div>
+
+<div class="card">
+<div class="icon-title"><div class="icon-chip">◁</div><h3>Ads & Assets</h3></div>
+<p>Relevance and alignment with search intent.</p>
+</div>
+
+<div class="card">
+<div class="icon-title"><div class="icon-chip">▣</div><h3>Landing Pages</h3></div>
+<p>Alignment between searches, ads and destinations.</p>
+</div>
+
+<div class="card">
+<div class="icon-title"><div class="icon-chip">↗</div><h3>Growth Opportunities</h3></div>
+<p>Performance risks and improvement opportunities.</p>
+</div>
+
 </div>
 </div>
 </section>
 
-<section class="container">
-<h2>What I Look For</h2>
-<div class="grid">
-<div class="card">Campaign Structure</div>
-<div class="card">Search Terms & Keywords</div>
-<div class="card">Budget Allocation</div>
-<div class="card">Bidding Approaches</div>
-<div class="card">Ad Relevance</div>
-<div class="card">Landing Page Alignment</div>
-<div class="card">Wasted Spend Opportunities</div>
-<div class="card">Overall Account Health</div>
+<div class="divider"></div>
+
+<section class="section bg3" id="contact">
+<div class="container">
+<h2 class="section-title">Request A Google Ads Audit</h2>
+<p class="section-sub">Get in touch for an independent review of your Google Ads account.</p>
+
+<div class="contact-grid">
+<div class="card">
+<div class="contact-icon">✉</div>
+<h3>Email</h3>
+<p>paulbrash1@gmail.com</p>
+</div>
+
+<div class="card">
+<div class="contact-icon">in</div>
+<h3>LinkedIn</h3>
+<p>linkedin.com/in/paulbrash</p>
+</div>
+</div>
 </div>
 </section>
-
-<section class="container">
-<h2>Common Issues I Uncover</h2>
-<div class="grid">
-<div class="card">Search terms consuming budget without generating meaningful results.</div>
-<div class="card">Campaign structures limiting performance and visibility.</div>
-<div class="card">Poor keyword matching leading to irrelevant traffic.</div>
-<div class="card">Missed high-intent opportunities.</div>
-<div class="card">Budget allocated to underperforming campaigns.</div>
-<div class="card">Ads that don't align with user intent.</div>
-</div>
-</section>
-
-<section class="container about">
-<h2>About Paul</h2>
-<p>Hi, I'm Paul.</p>
-<p>I specialise in reviewing Google Ads accounts and identifying opportunities to improve performance.</p>
-<p>My experience spans ecommerce, B2B and a broad range of service-based businesses, giving me exposure to both online sales and lead generation campaigns across a variety of industries.</p>
-<p>I work with businesses and agencies that want an independent review of their Google Ads account, whether that's to identify wasted spend, uncover missed opportunities or simply gain a fresh perspective on account performance.</p>
-<p>My focus is practical recommendations that can be implemented to improve efficiency, lead quality and return on ad spend.</p>
-</section>
-
-<section class="container">
-<h2>How It Works</h2>
-<div class="grid">
-<div class="card"><strong>1.</strong> Grant Account Access</div>
-<div class="card"><strong>2.</strong> Independent Review</div>
-<div class="card"><strong>3.</strong> Receive Prioritised Recommendations</div>
-<div class="card"><strong>4.</strong> Implement Improvements</div>
-</div>
-</section>
-
-<section class="container contact" id="contact">
-<h2>Get In Touch</h2>
-<p>If you'd like an independent review of your Google Ads account, I'd be happy to discuss your requirements.</p>
-<p>Email: <a href="mailto:paulbrash1@gmail.com">paulbrash1@gmail.com</a></p>
-<p>LinkedIn: <a href="https://www.linkedin.com/in/paulbrash/">linkedin.com/in/paulbrash</a></p>
-</section>
-
-<footer>
-Paul Brash | Google Ads Audits • Account Reviews • Performance Improvement
-</footer>
 
 </body>
 </html>
