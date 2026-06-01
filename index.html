@@ -11,11 +11,12 @@
 --card:rgba(255,255,255,.06);--text:#f8fafc;
 --muted:#cbd5e1;--cyan:#22d3ee;--blue:#3b82f6;
 }
-    .chips{
+  .chips{
     display:flex;
     flex-wrap:wrap;
     gap:14px;
     justify-content:center;
+    margin-top:30px;
 }
 
 .chip{
@@ -25,6 +26,14 @@
     border:1px solid rgba(34,211,238,.18);
     color:#dff7ff;
     font-weight:600;
+    font-size:.95rem;
+    backdrop-filter:blur(10px);
+    transition:all .2s ease;
+}
+
+.chip:hover{
+    border-color:rgba(34,211,238,.45);
+    transform:translateY(-2px);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text)}
