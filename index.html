@@ -628,7 +628,75 @@ section { padding: 100px 0; }
   color: #6ea8d4;
   font-size: .9rem;
 }
+.contact-form{
+    max-width:700px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
 
+.contact-form input,
+.contact-form textarea{
+
+    width:100%;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    background:rgba(255,255,255,.05);
+
+    color:#fff;
+
+    font-family:inherit;
+
+    font-size:1rem;
+
+    transition:.25s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+
+    outline:none;
+
+    border-color:rgba(34,211,238,.4);
+
+    box-shadow:0 0 20px rgba(34,211,238,.15);
+}
+
+.contact-form button{
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:18px;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #22d3ee
+    );
+
+    color:white;
+
+    transition:.25s ease;
+}
+
+.contact-form button:hover{
+
+    transform:translateY(-2px);
+}
 /* ── Footer ── */
 footer {
   text-align: center;
@@ -947,42 +1015,58 @@ footer {
 
 <!-- ── Contact ── -->
 <section id="contact">
-  <div class="container">
-    <div style="text-align:center">
-      <div class="section-tag">Get In Touch</div>
-      <h2 class="section-title">Request a Google Ads Audit</h2>
-      <p class="section-sub">Get an independent, objective review of your Google Ads account — no obligation, no sales pitch.</p>
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Request A Google Ads Audit
+        </h2>
+
+        <p class="section-sub">
+            Tell me a little about your business and I'll be in touch.
+        </p>
+
+        <form
+            action="https://formspree.io/f/mrednoey"
+            method="POST"
+            class="contact-form"
+        >
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required
+            >
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                required
+            >
+
+            <input
+                type="text"
+                name="website"
+                placeholder="Website URL"
+            >
+
+            <textarea
+                name="message"
+                placeholder="Tell me about your Google Ads account..."
+                rows="6"
+                required
+            ></textarea>
+
+            <button type="submit">
+                Request Audit
+            </button>
+
+        </form>
+
     </div>
-    <div class="contact-grid">
-      <a class="contact-link" href="mailto:paulbrash1@gmail.com">
-        <div class="contact-card">
-          <span class="contact-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="3" y="7" width="26" height="18" rx="3" stroke="#00d4ff" stroke-width="1.8"/>
-              <path d="M3 10l13 9 13-9" stroke="#00d4ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-          <h3>Email</h3>
-          <p>paulbrash1@gmail.com</p>
-        </div>
-      </a>
-      <a class="contact-link" href="https://www.linkedin.com/in/paulbrash/" target="_blank">
-        <div class="contact-card">
-          <span class="contact-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="3" y="3" width="26" height="26" rx="5" stroke="#00d4ff" stroke-width="1.8"/>
-              <path d="M10 13.5v8" stroke="#00d4ff" stroke-width="1.8" stroke-linecap="round"/>
-              <circle cx="10" cy="10.5" r="1.2" fill="#00d4ff"/>
-              <path d="M15 21.5v-4a3 3 0 0 1 6 0v4" stroke="#00d4ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M15 13.5v8" stroke="#00d4ff" stroke-width="1.8" stroke-linecap="round"/>
-            </svg>
-          </span>
-          <h3>LinkedIn</h3>
-          <p>Connect with Paul</p>
-        </div>
-      </a>
-    </div>
-  </div>
+
 </section>
 
 <footer>
