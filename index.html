@@ -86,24 +86,20 @@ body {
 }
 
 /* ─────────────────────────────────────────
-   NAV — slimmer
+   NAV — transparent, static
 ───────────────────────────────────────── */
 nav {
-  position: fixed;
+  position: absolute;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  padding: 10px 36px;
+  padding: 28px 36px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(8,14,28,.82);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(255,255,255,.06);
-  overflow: visible;
 }
 
 .logo img {
-  max-height: 100px;
+  max-height: 36px;
   width: auto;
   display: block;
 }
@@ -132,8 +128,7 @@ nav {
   min-height: 100svh;
   display: flex;
   align-items: center;
-  /* nav is ~65px; give breathing room top & bottom */
-  padding: 80px 0 60px;
+  padding: 100px 0 60px;
 }
 
 .hero-inner {
@@ -804,7 +799,7 @@ footer {
 }
 
 @media (max-width: 600px) {
-  nav { padding: 10px 18px; }
+  nav { padding: 20px 20px; }
   .logo img { max-height: 36px; }
   .exp-grid, .review-grid, .cases-grid, .steps-grid { grid-template-columns: 1fr; }
   .stats-bar { grid-template-columns: 1fr; }
