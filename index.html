@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Brash Digital | Independent Google Ads Audits</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1VPFZBK3QY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1VPFZBK3QY');
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
@@ -625,10 +633,7 @@ section { padding: 96px 0; }
    CONTACT — form + LinkedIn
 ───────────────────────────────────────── */
 .contact-layout {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: 24px;
-  max-width: 860px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
@@ -796,8 +801,6 @@ footer {
   .steps-grid::before { display: none; }
   .about-inner { grid-template-columns: 1fr; text-align: center; gap: 32px; }
   .about-tags { justify-content: center; }
-  .contact-layout { grid-template-columns: 1fr; }
-  .contact-card { min-height: 160px; }
 }
 
 @media (max-width: 600px) {
@@ -834,7 +837,6 @@ footer {
         <p class="sub">Helping agencies, ecommerce brands, B2B companies and service businesses find what's costing them — and what's holding them back.</p>
         <div class="buttons">
           <a class="btn-primary" href="#contact">Request an Audit →</a>
-          <a class="btn-secondary" href="https://www.linkedin.com/in/paulbrash/" target="_blank">↗ LinkedIn</a>
         </div>
         <div class="stats-bar">
           <div class="stat">
@@ -1119,24 +1121,6 @@ footer {
         <div class="form-msg" id="form-success">✓ Message sent — Paul will be in touch shortly.</div>
         <div class="form-msg" id="form-error">Something went wrong. Please try emailing paulbrash1@gmail.com directly.</div>
       </div>
-
-      <!-- LinkedIn card -->
-      <a class="contact-link" href="https://www.linkedin.com/in/paulbrash/" target="_blank">
-        <div class="contact-card">
-          <div class="contact-icon">
-            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-              <rect x="3" y="3" width="26" height="26" rx="5" stroke="#00d4ff" stroke-width="1.8"/>
-              <path d="M10 13.5v8" stroke="#00d4ff" stroke-width="1.8" stroke-linecap="round"/>
-              <circle cx="10" cy="10.5" r="1.2" fill="#00d4ff"/>
-              <path d="M15 21.5v-4a3 3 0 0 1 6 0v4" stroke="#00d4ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M15 13.5v8" stroke="#00d4ff" stroke-width="1.8" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>LinkedIn</h3>
-          <p>Connect with Paul</p>
-          <small>View experience, recommendations and connect directly on LinkedIn.</small>
-        </div>
-      </a>
 
     </div>
   </div>
