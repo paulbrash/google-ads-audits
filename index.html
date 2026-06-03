@@ -89,8 +89,7 @@ body {
    NAV — transparent, static
 ───────────────────────────────────────── */
 nav {
-  position: absolute;
-  top: 0; left: 0; right: 0;
+  position: relative;
   z-index: 1000;
   padding: 16px 36px;
   display: flex;
@@ -99,7 +98,7 @@ nav {
 }
 
 .logo img {
-  max-height:125px;
+  max-height: 80px;
   width: auto;
   display: block;
 }
@@ -125,10 +124,10 @@ nav {
    HERO — headline always above the fold
 ───────────────────────────────────────── */
 .hero {
-  min-height: 100svh;
+  min-height: calc(100svh - 112px);
   display: flex;
   align-items: center;
-  padding: 72px 0 60px;
+  padding: 20px 0 60px;
 }
 
 .hero-inner {
@@ -799,8 +798,8 @@ footer {
 }
 
 @media (max-width: 600px) {
-  nav { padding: 20px 20px; }
-  .logo img { max-height: 36px; }
+  nav { padding: 14px 20px; }
+  .logo img { max-height: 60px; }
   .exp-grid, .review-grid, .cases-grid, .steps-grid { grid-template-columns: 1fr; }
   .stats-bar { grid-template-columns: 1fr; }
   .audit-tabs { grid-template-columns: repeat(2,1fr); }
