@@ -112,114 +112,182 @@ nav {
 .nav-cta:hover { opacity: .88; transform: translateY(-1px); }
 
 /* ── Hero ── */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 140px 0 100px;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agency Grade Hero</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#020814;
+  overflow:hidden;
+  font-family:Inter,Arial,sans-serif;
+}
+.hero{
+  position:relative;
+  width:100vw;
+  height:100vh;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,120,255,.18), transparent 35%),
+    radial-gradient(circle at 80% 15%, rgba(0,255,255,.12), transparent 25%),
+    linear-gradient(180deg,#020814,#071a35);
+}
+.grid{
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(0,180,255,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,180,255,.08) 1px, transparent 1px);
+  background-size:50px 50px;
+  animation:gridMove 12s linear infinite;
+}
+.hero-content{
+  position:absolute;
+  top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  color:white;
+  width:min(1100px,90vw);
+}
+.badge{
+  display:inline-block;
+  padding:12px 24px;
+  border:1px solid rgba(0,200,255,.4);
+  border-radius:999px;
+  backdrop-filter: blur(10px);
+  margin-bottom:30px;
+  letter-spacing:2px;
+}
+h1{
+  font-size:clamp(48px,7vw,110px);
+  line-height:1;
+  font-weight:800;
+}
+.gradient{
+  background:linear-gradient(90deg,#7dd3fc,#00b7ff,#7dd3fc);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation:textFlow 4s linear infinite;
+}
+.sub{
+  margin-top:25px;
+  font-size:clamp(18px,2vw,30px);
+  opacity:.85;
+}
+.cta{
+  margin-top:40px;
+  display:inline-block;
+  padding:18px 34px;
+  border-radius:14px;
+  color:white;
+  text-decoration:none;
+  background:linear-gradient(90deg,#009dff,#00d4ff);
+  animation:pulse 2s infinite;
+  box-shadow:0 0 40px rgba(0,180,255,.45);
+}
+.scan{
+  position:absolute;
+  top:0;
+  left:-30%;
+  width:20%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);
+  transform:skewX(-20deg);
+  animation:sweep 6s linear infinite;
+}
+.counter-panel{
+  position:absolute;
+  bottom:50px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:24px;
+}
+.card{
+  min-width:180px;
+  padding:22px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.04);
+  backdrop-filter:blur(14px);
+  border-radius:20px;
+  color:white;
+  text-align:center;
+}
+.value{
+  font-size:42px;
+  font-weight:800;
+}
+.particle{
+  position:absolute;
+  width:3px;height:3px;
+  border-radius:50%;
+  background:white;
+}
+@keyframes sweep{
+  from{left:-30%} to{left:130%}
+}
+@keyframes pulse{
+  50%{transform:scale(1.05)}
+}
+@keyframes gridMove{
+  from{transform:translateY(0)}
+  to{transform:translateY(50px)}
+}
+@keyframes textFlow{
+  to{background-position:200% center}
+}
+</style>
+</head>
+<body>
+<div class="hero">
+<div class="grid"></div>
+<div class="scan"></div>
+
+<div class="hero-content">
+<div class="badge">INDEPENDENT GOOGLE ADS AUDITS</div>
+<h1>Is Your Google Ads Budget<br><span class="gradient">Actually Working?</span></h1>
+<div class="sub">Discover wasted spend, missed opportunities and hidden growth potential.</div>
+<a href="#" class="cta">Get Your Audit</a>
+</div>
+
+</div>
+<div class="card"><div class="value" id="c2">0</div><div>Budget Saved</div></div>
+<div class="card"><div class="value" id="c3">0</div><div>Accounts Audited</div></div>
+</div>
+</div>
+
+<script>
+for(let i=0;i<120;i++){
+  let p=document.createElement('div');
+  p.className='particle';
+  p.style.left=Math.random()*100+'vw';
+  p.style.top=Math.random()*100+'vh';
+  p.style.opacity=Math.random();
+  p.animate([
+    {transform:'translateY(0px)'},
+    {transform:'translateY(-120px)'}
+  ],{
+    duration:4000+Math.random()*8000,
+    iterations:Infinity
+  });
+  document.body.appendChild(p);
 }
 
-.hero-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
-}
+document.addEventListener('mousemove',e=>{
+ const x=(e.clientX/window.innerWidth-.5)*20;
+ const y=(e.clientY/window.innerHeight-.5)*20;
+ document.querySelector('.hero-content').style.transform=
+ `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+});
+</script>
+</body>
+</html>
 
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 16px;
-  border-radius: 999px;
-  background: rgba(0,212,255,.1);
-  border: 1px solid rgba(0,212,255,.25);
-  color: var(--cyan);
-  font-size: .8rem;
-  font-weight: 500;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  margin-bottom: 28px;
-}
-.badge::before {
-  content: '';
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--cyan);
-  animation: pulse 2s infinite;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: .3; }
-}
 
-h1 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 4.2rem;
-  line-height: 1.18;
-  font-weight: 800;
-  margin-bottom: 22px;
-  letter-spacing: -.02em;
-}
-
-.gradient {
-  background: linear-gradient(100deg, #fff 20%, #7dd3fc 60%, var(--cyan));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  display: inline-block;
-  padding-bottom: 0.1em;
-}
-
-.hero p.sub {
-  font-size: 1.1rem;
-  color: var(--muted);
-  margin-bottom: 36px;
-  max-width: 520px;
-  line-height: 1.7;
-}
-
-.buttons {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-bottom: 44px;
-}
-
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 15px 28px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--accent), var(--cyan));
-  color: #fff;
-  font-family: 'Syne', sans-serif;
-  font-weight: 700;
-  font-size: 1rem;
-  text-decoration: none;
-  box-shadow: 0 0 30px rgba(26,111,255,.35);
-  transition: transform .2s, box-shadow .2s;
-}
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 45px rgba(26,111,255,.5); }
-
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 15px 28px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,.15);
-  color: var(--text);
-  font-family: 'Syne', sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
-  text-decoration: none;
-  background: rgba(255,255,255,.04);
-  transition: border-color .2s, background .2s, transform .2s;
-}
-.btn-secondary:hover { border-color: rgba(255,255,255,.3); background: rgba(255,255,255,.07); transform: translateY(-2px); }
-
+  
 /* ── Audit tabs panel ── */
 .audit-panel {
   background: var(--card);
