@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1VPFZBK3QY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-1VPFZBK3QY');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Brash Digital | Independent Google Ads Audits</title>
@@ -93,17 +84,18 @@ nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  padding: 12px 36px;
+  padding: 10px 36px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: rgba(8,14,28,.82);
   backdrop-filter: blur(18px);
   border-bottom: 1px solid rgba(255,255,255,.06);
+  overflow: visible;
 }
 
 .logo img {
-  max-height: 40px;
+  max-height: 58px;
   width: auto;
   display: block;
 }
@@ -315,8 +307,34 @@ h1 {
 }
 
 .audit-body {
-  padding: 26px 28px 28px;
-  min-height: 210px;
+  padding: 24px 28px 0;
+}
+
+.audit-intro {
+  font-size: .83rem;
+  color: var(--muted);
+  margin-bottom: 16px;
+  line-height: 1.55;
+}
+
+.audit-footer {
+  margin-top: 20px;
+  padding: 14px 18px;
+  background: rgba(0,212,255,.06);
+  border-top: 1px solid rgba(0,212,255,.1);
+  font-size: .78rem;
+  color: #7ab8d4;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.audit-footer::before {
+  content: '';
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--cyan);
+  flex-shrink: 0;
 }
 
 .audit-body h3 {
@@ -784,7 +802,7 @@ footer {
 
 @media (max-width: 600px) {
   nav { padding: 10px 18px; }
-  .logo img { max-height: 34px; }
+  .logo img { max-height: 46px; }
   .exp-grid, .review-grid, .cases-grid, .steps-grid { grid-template-columns: 1fr; }
   .stats-bar { grid-template-columns: 1fr; }
   .audit-tabs { grid-template-columns: repeat(2,1fr); }
@@ -843,6 +861,7 @@ footer {
           <button class="tab-btn" onclick="showAudit('agency', this)">Agency</button>
         </div>
         <div class="audit-body" id="audit-content"></div>
+        <div class="audit-footer" id="audit-footer"></div>
       </div>
 
     </div>
@@ -1132,48 +1151,58 @@ footer {
 const audits = {
   ecommerce: {
     title: 'Typical Ecommerce Findings',
+    intro: 'Shopping and Performance Max accounts frequently have structural gaps that quietly drain budget and suppress visibility.',
     items: [
       'Product groups missing or poorly structured in Shopping campaigns',
       'Search campaigns competing against Performance Max',
       'High-spend products receiving limited visibility',
       'Poor search query control leading to wasted spend',
-    ]
+    ],
+    footer: 'Most ecommerce accounts are leaving revenue on the table through fixable structural issues.'
   },
   b2b: {
     title: 'Typical B2B Findings',
+    intro: 'B2B accounts often struggle with targeting precision — reaching the wrong audience while missing the prospects most likely to convert.',
     items: [
       'High-intent searches excluded or suppressed',
       'Broad match generating unqualified traffic',
       'Budget concentrated in low-converting campaigns',
       'Competitor keyword opportunities left unexplored',
-    ]
+    ],
+    footer: 'Better targeting and bid strategy can significantly improve lead quality without increasing spend.'
   },
   leadgen: {
     title: 'Typical Lead Gen Findings',
+    intro: 'Lead generation accounts frequently spend heavily on traffic that was never going to convert — and underfund what actually works.',
     items: [
       'Irrelevant search terms consuming significant budget',
       'Conversion-focused keywords consistently underfunded',
       'Local targeting gaps missing high-value prospects',
       "Ad copy misaligned with the searcher's intent",
-    ]
+    ],
+    footer: 'Redirecting spend from low-intent to high-intent searches is often the single biggest win.'
   },
   agency: {
     title: 'Typical Agency Audit Findings',
+    intro: 'An independent review gives agencies an objective second opinion — useful for onboarding, client reporting or resolving performance plateaus.',
     items: [
       'Structural issues limiting campaign optimisation',
       'Budget inefficiencies across campaign groups',
       'Overlapping keyword targeting creating internal competition',
       'Independent review adds objective accountability',
-    ]
+    ],
+    footer: 'White-label audits are delivered ready to share directly with your clients.'
   }
 };
 
 function showAudit(type, btn) {
   const data = audits[type];
   document.getElementById('audit-content').innerHTML =
+    '<p class="audit-intro">' + data.intro + '</p>' +
     '<h3>' + data.title + '</h3><ul>' +
     data.items.map(i => '<li>' + i + '</li>').join('') +
     '</ul>';
+  document.getElementById('audit-footer').textContent = data.footer;
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   if (btn) btn.classList.add('active');
 }
