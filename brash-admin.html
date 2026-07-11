@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Brash Digital — Assistant Content Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080e1c; --bg2: #0c1424; --bg3: #11192e;
+    --card: rgba(255,255,255,.058); --card-hover: rgba(255,255,255,.092);
+    --text: #eef2ff; --muted: #8899bb;
+    --accent: #1a6fff; --cyan: #00d4ff;
+    --cyan-dim: rgba(0,212,255,.12); --cyan-border: rgba(0,212,255,.2);
+    --glow: rgba(26,111,255,.35);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: 'DM Sans', sans-serif; min-height: 100vh;
+  }
+  header {
+    padding: 28px 32px; border-bottom: 1px solid var(--cyan-border); background: var(--bg2);
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  }
+  h1 { font-family: 'Syne', sans-serif; font-size: 22px; margin: 0; }
+  .sub { color: var(--muted); font-size: 13.5px; margin-top: 4px; }
+  main { max-width: 880px; margin: 0 auto; padding: 28px 20px 60px 20px; }
+  .btn {
+    font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 13px; cursor: pointer;
+    border-radius: 999px; padding: 10px 18px; border: 1px solid var(--cyan-border);
+    background: var(--card); color: var(--text);
+  }
+  .btn:hover { background: var(--card-hover); }
+  .btn.primary {
+    background: linear-gradient(135deg, var(--accent), var(--cyan)); color: var(--bg); border: none;
+  }
+  .toolbar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+  .card {
+    background: var(--card); border: 1px solid var(--cyan-border); border-radius: 16px;
+    padding: 18px 20px; margin-bottom: 14px;
+  }
+  .card .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .chip {
+    display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;
+    color: var(--cyan); background: var(--cyan-dim); border: 1px solid var(--cyan-border);
+    padding: 3px 9px; border-radius: 999px;
+  }
+  .q { font-weight: 700; font-size: 14.5px; margin: 10px 0 4px 0; }
+  .a { color: var(--muted); font-size: 13.5px; line-height: 1.55; margin: 0; }
+  .tags { margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag { font-size: 11px; color: var(--muted); background: rgba(255,255,255,0.04); padding: 3px 8px; border-radius: 999px; }
+  .icon-btn { background: none; border: none; color: var(--muted); cursor: pointer; padding: 4px; }
+  .icon-btn:hover { color: var(--cyan); }
+  label { display: block; font-size: 11.5px; font-weight: 700; color: var(--muted); margin: 12px 0 4px 0; text-transform: uppercase; letter-spacing: 0.02em; }
+  input[type=text], textarea {
+    width: 100%; background: var(--bg); border: 1px solid var(--cyan-border); color: var(--text);
+    border-radius: 10px; padding: 10px 12px; font-family: 'DM Sans', sans-serif; font-size: 13.5px;
+  }
+  input:focus, textarea:focus { outline: none; border-color: var(--cyan); }
+  textarea { resize: vertical; }
+  .row2 { display: flex; gap: 14px; }
+  .row2 > div { flex: 1; }
+  .banner {
+    background: var(--cyan-dim); border: 1px solid var(--cyan-border); border-radius: 12px;
+    padding: 14px 16px; font-size: 13px; color: var(--text); margin-bottom: 20px; line-height: 1.6;
+  }
+  .banner a { color: var(--cyan); }
+  #status { font-size: 12.5px; color: var(--muted); }
+  #empty { text-align: center; padding: 40px 20px; color: var(--muted); border: 1px dashed var(--cyan-border); border-radius: 16px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Assistant Content Manager</h1>
+    <div class="sub">Local editor for the widget's knowledge base — nothing here goes live until you export and commit it.</div>
+  </div>
+  <span id="status"></span>
+</header>
+
+<main>
+  <div class="banner">
+    This page edits a working copy stored only in <strong>this browser</strong>. When you're happy with your changes, click
+    <strong>Export JSON</strong> and replace <code>brash-faq-data.json</code> in your repo with the downloaded file, then commit
+    and push. Unanswered visitor questions (if you've set up Formspree in the widget) will land in your email — turn the useful
+    ones into new entries here.
+  </div>
+
+  <div class="toolbar">
+    <button class="btn primary" onclick="openForm()">+ Add entry</button>
+    <button class="btn" onclick="loadFromLiveFile()">Reload from brash-faq-data.json</button>
+    <button class="btn" onclick="exportJson()">Export JSON</button>
+    <label class="btn" style="margin:0;">
+      Import JSON
+      <input type="file" accept="application/json" style="display:none" onchange="importJson(event)" />
+    </label>
+  </div>
+
+  <div id="formCard" style="display:none;" class="card">
+    <div class="top"><strong id="formTitle">New entry</strong><button class="icon-btn" onclick="closeForm()">✕</button></div>
+    <label>Question</label>
+    <input type="text" id="fQuestion" placeholder="e.g. Do you offer white-label reviews for agencies?" />
+    <label>Answer</label>
+    <textarea id="fAnswer" rows="4" placeholder="Answer in plain language, grounded in what's actually true today."></textarea>
+    <div class="row2">
+      <div>
+        <label>Category</label>
+        <input type="text" id="fCategory" placeholder="The Audit, Process, Pricing…" />
+      </div>
+      <div>
+        <label>Tags (comma separated)</label>
+        <input type="text" id="fTags" placeholder="pricing, turnaround" />
+      </div>
+    </div>
+    <div style="margin-top:14px; display:flex; justify-content:flex-end;">
+      <button class="btn primary" onclick="saveForm()">Save entry</button>
+    </div>
+  </div>
+
+  <div id="list"></div>
+</main>
+
+<script>
+  const STORAGE_KEY = "brash-admin-entries";
+  let entries = [];
+  let editingId = null;
+
+  function uid() { return Math.random().toString(36).slice(2, 10); }
+
+  function loadLocal() {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      entries = JSON.parse(raw);
+      render();
+    } else {
+      loadFromLiveFile();
+    }
+  }
+
+  function loadFromLiveFile() {
+    fetch("brash-faq-data.json")
+      .then((r) => r.json())
+      .then((data) => {
+        entries = Array.isArray(data) ? data : [];
+        persist();
+        setStatus("Loaded from brash-faq-data.json");
+      })
+      .catch(() => {
+        setStatus("Couldn't load brash-faq-data.json — starting empty. Make sure this file is in the same folder.");
+      });
+  }
+
+  function persist() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+    render();
+  }
+
+  function setStatus(msg) {
+    document.getElementById("status").textContent = msg;
+    setTimeout(() => { document.getElementById("status").textContent = ""; }, 3000);
+  }
+
+  function openForm(entry) {
+    editingId = entry ? entry.id : null;
+    document.getElementById("formTitle").textContent = entry ? "Edit entry" : "New entry";
+    document.getElementById("fQuestion").value = entry ? entry.question : "";
+    document.getElementById("fAnswer").value = entry ? entry.answer : "";
+    document.getElementById("fCategory").value = entry ? entry.category : "";
+    document.getElementById("fTags").value = entry ? (entry.tags || []).join(", ") : "";
+    document.getElementById("formCard").style.display = "block";
+    document.getElementById("formCard").scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  function closeForm() {
+    document.getElementById("formCard").style.display = "none";
+    editingId = null;
+  }
+
+  function saveForm() {
+    const question = document.getElementById("fQuestion").value.trim();
+    const answer = document.getElementById("fAnswer").value.trim();
+    const category = document.getElementById("fCategory").value.trim() || "General";
+    const tags = document.getElementById("fTags").value.split(",").map((t) => t.trim()).filter(Boolean);
+    if (!question || !answer) return;
+
+    if (editingId) {
+      entries = entries.map((e) => (e.id === editingId ? { ...e, question, answer, category, tags } : e));
+    } else {
+      entries = [{ id: uid(), question, answer, category, tags }, ...entries];
+    }
+    persist();
+    closeForm();
+  }
+
+  function deleteEntry(id) {
+    entries = entries.filter((e) => e.id !== id);
+    persist();
+  }
+
+  function exportJson() {
+    const clean = entries.map(({ id, category, question, answer, tags }) => ({ id, category, question, answer, tags }));
+    const blob = new Blob([JSON.stringify(clean, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "brash-faq-data.json";
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function importJson(evt) {
+    const file = evt.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const data = JSON.parse(reader.result);
+        if (Array.isArray(data)) {
+          entries = data.map((d) => ({ id: d.id || uid(), ...d }));
+          persist();
+          setStatus("Imported " + entries.length + " entries.");
+        }
+      } catch (e) {
+        setStatus("That file didn't look like valid JSON.");
+      }
+    };
+    reader.readAsText(file);
+    evt.target.value = "";
+  }
+
+  function render() {
+    const list = document.getElementById("list");
+    if (entries.length === 0) {
+      list.innerHTML = '<div id="empty">No entries yet. Add one, or import a JSON file.</div>';
+      return;
+    }
+    list.innerHTML = entries.map((e) => `
+      <div class="card">
+        <div class="top">
+          <span class="chip">${escapeHtml(e.category || "General")}</span>
+          <div>
+            <button class="icon-btn" onclick='openForm(${JSON.stringify(e).replace(/'/g, "&apos;")})'>✎</button>
+            <button class="icon-btn" onclick="deleteEntry('${e.id}')">🗑</button>
+          </div>
+        </div>
+        <div class="q">${escapeHtml(e.question)}</div>
+        <p class="a">${escapeHtml(e.answer)}</p>
+        ${e.tags && e.tags.length ? `<div class="tags">${e.tags.map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join("")}</div>` : ""}
+      </div>
+    `).join("");
+  }
+
+  function escapeHtml(str) {
+    const d = document.createElement("div");
+    d.textContent = str || "";
+    return d.innerHTML;
+  }
+
+  loadLocal();
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+[
+  {
+    "id": "audit-scope",
+    "category": "The Audit",
+    "question": "What does the audit actually review?",
+    "answer": "Every layer of your Google Ads account: campaign structure and architecture, keywords and search terms, budgets and bidding strategy, ad copy and assets, landing pages, and overall account health (performance risks and structural red flags).",
+    "tags": ["scope", "what's included"]
+  },
+  {
+    "id": "campaign-structure",
+    "category": "The Audit",
+    "question": "What does the campaign structure review cover?",
+    "answer": "How your account is organised and segmented, and whether the way your campaigns are built is helping or holding back performance.",
+    "tags": ["structure", "architecture"]
+  },
+  {
+    "id": "keywords-search-terms",
+    "category": "The Audit",
+    "question": "Do you review keywords and search terms?",
+    "answer": "Yes — the audit looks at traffic quality, how well search intent lines up with your keywords, and any missed keyword opportunities the account isn't currently capturing.",
+    "tags": ["keywords", "search terms"]
+  },
+  {
+    "id": "budgets-bidding",
+    "category": "The Audit",
+    "question": "Will you look at how my budget is being spent?",
+    "answer": "Yes — the review covers where budget is being allocated and whether the bidding strategy actually matches your business goals.",
+    "tags": ["budget", "bidding"]
+  },
+  {
+    "id": "who-its-for",
+    "category": "Who It's For",
+    "question": "Who are these audits for?",
+    "answer": "Agencies, ecommerce brands, B2B companies and service businesses. This covers online retailers and Shopping specialists, lead-generation and pipeline-focused B2B accounts, local and national service providers, and white-label reviews for agencies.",
+    "tags": ["ecommerce", "b2b", "agency", "service business"]
+  },
+  {
+    "id": "platforms-covered",
+    "category": "Who It's For",
+    "question": "Which campaign types or platforms are covered?",
+    "answer": "Google Search, Performance Max, Shopping, Display and Remarketing campaigns.",
+    "tags": ["performance max", "shopping", "display", "remarketing"]
+  },
+  {
+    "id": "independence",
+    "category": "Trust & Independence",
+    "question": "Is this a genuinely independent review, or is there a sales pitch?",
+    "answer": "It's a fully independent, objective audit — no agenda and no upsell. The findings are simply a clear, prioritised set of recommendations you can act on.",
+    "tags": ["independent", "objective", "no upsell"]
+  },
+  {
+    "id": "about-paul",
+    "category": "Trust & Independence",
+    "question": "Who is doing the audit?",
+    "answer": "Paul, who has over 10 years of experience in Google Ads and specialises in independent account reviews across ecommerce, B2B and service-based businesses, covering both online sales and lead-generation campaigns.",
+    "tags": ["about", "paul", "experience"]
+  },
+  {
+    "id": "access-needed",
+    "category": "Process",
+    "question": "What access do I need to give for the audit?",
+    "answer": "Just read-only access to your Google Ads account — that's the first step, and it's all that's needed for the review itself.",
+    "tags": ["access", "read-only", "getting started"]
+  },
+  {
+    "id": "process-steps",
+    "category": "Process",
+    "question": "What are the steps in the audit process?",
+    "answer": "Four steps: you grant read-only access to your account, an independent review is carried out with no agenda or upsell, you receive clear and prioritised findings, and then you implement the recommendations yourself or hand them to your existing team.",
+    "tags": ["process", "how it works", "steps"]
+  },
+  {
+    "id": "after-the-audit",
+    "category": "Process",
+    "question": "What happens after I get my findings?",
+    "answer": "You're in full control of what happens next — you can apply the recommendations yourself, or pass them on to your existing team or agency to action.",
+    "tags": ["findings", "implementation", "next steps"]
+  },
+  {
+    "id": "agency-white-label",
+    "category": "Who It's For",
+    "question": "Do you offer white-label reviews for agencies?",
+    "answer": "Yes — white-label independent account reviews are available for agencies, useful for onboarding new clients, client reporting, or getting an objective second opinion on a plateaued account.",
+    "tags": ["agency", "white-label"]
+  },
+  {
+    "id": "how-to-request",
+    "category": "Getting Started",
+    "question": "How do I request an audit?",
+    "answer": "Fill in the request form on the site with your name, email, company or website, and approximate monthly ad spend, and Paul will be in touch to arrange an independent review — no obligation, no sales pitch.",
+    "tags": ["request", "contact", "get started"]
+  }
+]
