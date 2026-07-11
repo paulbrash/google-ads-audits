@@ -121,7 +121,7 @@ nav {
 .nav-cta:hover { opacity: .88; transform: translateY(-1px); }
 
 /* ─────────────────────────────────────────
-   HERO — headline always above the fold
+   HERO — line always above the fold
 ───────────────────────────────────────── */
 .hero {
   display: flex;
@@ -163,7 +163,7 @@ nav {
   50% { opacity: .3; }
 }
 
-/* Fluid headline: never too large to overflow on any screen */
+/* Fluid line: never too large to overflow on any screen */
 h1 {
   font-family: 'Plus Jakarta Sans', sans-serif;
   /* clamp: 1.9rem on tiny phones → 3.6rem on large screens */
@@ -1226,5 +1226,5 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
-</body>
+<script src="brash-chat-widget.js" defer></script>
 </html>
