@@ -16,7 +16,7 @@
   "use strict";
 
   // ---- configure this ----
-  const FORMSPREE_ID = ""; // e.g. "abcdwxyz" from https://formspree.io/f/abcdwxyz — leave blank to disable
+  const FORMSPREE_ID = "mrednoey"; // e.g. "abcdwxyz" from https://formspree.io/f/abcdwxyz — leave blank to disable
 
   // ---- brand tokens, pulled from the site's own stylesheet ----
   const T = {
